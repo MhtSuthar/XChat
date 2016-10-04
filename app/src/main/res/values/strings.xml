@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ChatModule</string>
+    <string name="server">chat.outperformfitness.com</string>
+</resources>

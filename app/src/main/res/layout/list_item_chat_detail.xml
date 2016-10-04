@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="chatDetail"
+            type="com.chatmodule.model.ChatMessage" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--Left Receiver Layout-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chat_popup_from"
+            android:orientation="vertical"
+            android:visibility="@{chatDetail.isMine ? View.GONE : View.VISIBLE}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="200dp"
+                android:minWidth="80dp"
+                android:text="@{chatDetail.body}"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/colorText"
+                tools:text="hi Whsat up" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@color/colorDivider"
+                app:time="@{chatDetail.TimeMill}"
+                tools:text="9:24 PM" />
+
+        </LinearLayout>
+
+
+        <!-- Right Sender Layout-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/chat_popup_to"
+            android:orientation="vertical"
+            android:visibility="@{chatDetail.isMine ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="200dp"
+                android:minWidth="80dp"
+                android:text="@{chatDetail.body}"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/white"
+                tools:text="hi" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/txtTimeSender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@android:color/white"
+                    app:time="@{chatDetail.TimeMill}"
+                    tools:text="9:24 PM" />
+
+                <ImageView
+                    android:id="@+id/imgMsgStatus"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    tools:src="@drawable/send_check"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

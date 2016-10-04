@@ -1,0 +1,5 @@
+#IF Column KEY_MSG_STATUS is
+            - 0 for send
+            - 1 for delivered
+            - 2 for view (Read)
+
