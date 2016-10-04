@@ -14,7 +14,7 @@ import org.jivesoftware.smack.chat.Chat;
 
 public class MyXmppService extends Service {
 
-    private static final String DOMAIN = "chat.outperformfitness.com";
+    private static final String DOMAIN = "Your domain name";
     private static final String USERNAME = SharedPreferenceUtil.getString(ChatUtils.XMPP_USERNAME, "");
     private static final String PASSWORD = "123456";
     public static ConnectivityManager cm;
